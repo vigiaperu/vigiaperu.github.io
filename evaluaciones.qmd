@@ -1,0 +1,515 @@
+---
+title: ""
+format: html
+---
+
+## Evaluaciones de logros de aprendizaje en el tiempo
+
+```{r Librerías, message=FALSE, warning=FALSE, echo=FALSE}
+
+library(openxlsx)
+library(ggplot2)
+library(tidyverse)
+library(sanzo)
+library(ggiraph)
+library(glue)
+library(ggforce)
+
+```
+
+```{r Funciones especiales, message=FALSE, warning=FALSE, echo=FALSE}
+
+source(url("https://raw.githubusercontent.com/Manumarc/Resultados-ENLA/main/funciones.R"))
+
+```
+
+```{r Bases de datos evaluaciones, message=FALSE, warning=FALSE, echo=FALSE}
+
+#=================================================================#
+# Bases de datos de evaluaciones de logros de aprendizaje
+#=================================================================#
+
+# Evaluaciones de 2.° grado de primaria #
+#---------------------------------------#
+
+enla2p <- data.frame(
+  año = c(2007:2025),
+  eva = c(rep("Censal",10),NA,"Muestral nacional","Muestral regional",NA,NA,"Muestral regional","Muestral nacional",NA,NA),
+  area = c(rep("Lectura \nMatemática",10),NA,rep("Lectura \nMatemática",2),NA,NA,rep("Lectura \nMatemática",2),NA,NA)
+) %>% 
+  filter(complete.cases(.)) %>% 
+  mutate(
+    grado = "2.° grado de primaria",
+    ejey = 2
+  )
+
+# Evaluaciones de 4.° grado de primaria #
+#---------------------------------------#
+
+enla4p <- data.frame(
+  año = c(2016:2025),
+  eva = c("Censal",
+          NA,
+          "Censal",
+          "Muestral regional",
+          NA,
+          NA,
+          rep("Muestral regional",2),
+          "Censal",
+          "Muestral regional"),
+  area = c("Lectura \nMatemática",NA,rep("Lectura \nMatemática",2),NA,NA,rep("Lectura \nMatemática",3),"Lectura \nMatemática")
+) %>% 
+  filter(complete.cases(.)) %>% 
+  mutate(
+    grado = "4.° grado de primaria",
+    ejey = 4
+  )
+
+# Evaluaciones de 6.° grado de primaria #
+#---------------------------------------#
+
+enla6p <- data.frame(
+  año = c(2013,2018,2022,2024),
+  eva = c("Muestral regional",rep("Muestral nacional",2), "Muestral regional"),
+  area = c(
+    "Lectura \nEscritura (muestra nacional) \nMatemática \nCiudadanía", 
+    "Ciudadanía",
+    "Lectura \nMatemática \nHabilidades socioemocionales",
+    "Lectura \nMatemática \nHabilidades socioemocionales"
+  )
+) %>% 
+  filter(complete.cases(.)) %>% 
+  mutate(
+    grado = "6.° grado de primaria",
+    ejey = 6
+  )
+
+# Evaluaciones de 2.° grado de secundaria #
+#-----------------------------------------#
+
+enla2s <- data.frame(
+  año = c(
+    2015:2025
+  ),
+  eva = c(
+    rep("Censal",2),
+    NA,
+    rep("Censal",2),
+    NA,
+    NA,
+    rep("Muestral regional",2),
+    NA,
+    "Muestral regional"
+  ),
+  area = c(
+    "Lectura \nEscritura (muestra nacional) \nMatemática",
+    "Lectura \nMatemática \nCiencias sociales",
+    NA,
+    "Lectura \nEscritura (muestra nacional) \nMatemática \nCiencias sociales \nCiencia y tecnología",
+    "Lectura \nMatemática \nCiencia y tecnología",
+    NA,
+    NA,
+    "Lectura \nMatemática \nCiencia y tecnología \nHabilidades socioemocionales",
+    "Lectura \nMatemática \nCiencias sociales \nHabilidades socioemocionales",
+    NA,
+    "Lectura \nMatemática \nCiencia y tecnología"
+  )
+) %>% 
+  filter(complete.cases(.)) %>% 
+  mutate(
+    grado = "2.° grado de secundaria",
+    ejey = 8
+  )
+
+# Evaluaciones de 5.° grado de secundaria # 
+#-----------------------------------------#
+
+enla5s <- data.frame(
+  año = c(2025),
+  eva = c("Muestral nacional"),
+  area = c("Lectura \nMatemática \nCiudadanía \nCiencia y tecnología")
+) %>% 
+  filter(complete.cases(.)) %>% 
+  mutate(
+    grado = "5.° grado de secundaria",
+    ejey = 10
+  )
+
+# Integración de todas las bases # 
+#--------------------------------#
+
+enla_int <- rbind(enla2p,enla4p,enla6p,enla2s,enla5s) %>% 
+  mutate(
+    tooltip_etiq = glue::glue('<b>{grado}</b> <br><br><b>Áreas evaluadas:</b><br>{area}')
+  )
+
+```
+
+```{r Base de datos cuestionarios, message=FALSE, warning=FALSE, echo=FALSE}
+
+#=================================================================#
+# Bases de datos de cuestionarios de factores asociados
+#=================================================================#
+
+# Cuestionarios de 2.° grado de primaria #
+#----------------------------------------#
+
+ffaa2p <- data.frame(
+  año = c(
+    2013:2016,2019,2022,2023
+  ),
+  eva = c(
+    rep("Censal",4),
+    rep("Muestral regional",2),
+    "Muestral nacional"
+    ),
+  cuestionario = c(
+    "Director \nDocente",
+    "Director \nDocente de Comunicación \nDocente de Matemática",
+    "Director \nDocente \nPadres de familia",
+    "Director \nPadres de familia",
+    "Director \nDocente \nPadres de familia",
+    "Director \nDocente \nPadres de familia ",
+    "Director \nDocente \nPadres de familia"
+  )
+) %>% 
+  mutate(
+    grado = "2.° grado de primaria",
+    ejey = 2
+  )
+
+# Cuestionarios de 4.° grado de primaria #
+#----------------------------------------#
+
+ffaa4p <- data.frame(
+  año = c(
+    2016,2018,2019,2022,2023,2024
+  ),
+  eva = c(
+    rep("Censal",2),
+    rep("Muestral regional",3),
+    "Censal"
+    
+  ),
+  cuestionario = c(
+    "Docente \nPadres de familiar",
+    "Director \nDocente de Comunicación \nPadres de familia",
+    "Director \nDocente de Matemática \nPadres de familia",
+    "Docente de Comunicación \nDocente de Matemática \nPadres de familia",
+    "Director \nDocente de Comunicación \nDocente de Matemática \nPadres de familia",
+    "Director rural \nDirector urbano \nDocente de Comunicación \nDocente de Matemática \nEstudiante \nEstudiante con discapacidad"
+  )
+) %>% 
+  mutate(
+    grado = "4.° grado de primaria",
+    ejey = 4
+  )
+
+# Cuestionarios de 6.° grado de primaria #
+#----------------------------------------#
+
+ffaa6p <- data.frame(
+  año = c(
+    2013,2024
+  ),
+  eva = c(
+    rep("Muestral regional",2)
+  ),
+  cuestionario = c(
+    "Director \nDocente de Personal social \nDocente de Comunicación \nDocente de Matemática \nEstudiante \nPadres de familia",
+    "Docente de Comunicación \nDocente de Matemática \nEstudiante \nPadres de familia \nEstudiante con discapacidad \nPadres de familia (discapacidad)"
+  )
+) %>% 
+  mutate(
+    grado = "6.° grado de primaria",
+    ejey = 6
+  )
+
+# Cuestionarios de 2.° grado de secundaria #
+#------------------------------------------#
+
+ffaa2s <- data.frame(
+  año = c(
+    2015,2016,2018,2019,2022,2023
+  ),
+  eva = c(
+    rep("Censal",4),
+    rep("Muestral regional",2)
+    
+  ),
+  cuestionario = c(
+    "Estudiante",
+    "Director \nDocente de Comunicación \nDocente de Matemática \nDocente de Ciencias sociales \nEstudiante",
+    "Director \nEstudiante \nEstudiante CTA y Comunicación (Muestral)" ,
+    "Director \nDocente de Comunicación \nEstudiante \nEstudiante con discapacidad \nPadres de familia (discapacidad)",
+    "Director \nDocente de Comunicación \nDocente de Matemática \nEstudiante",
+    "Director \nDocente de Comunicación \nDocente de Matemática \nDocente de Ciencias sociales \nDocente tutor \nEstudiante"
+  )
+) %>% 
+  mutate(
+    grado = "2.° grado de secundaria",
+    ejey = 8
+  )
+
+ffaa_int <- rbind(ffaa2p,ffaa4p,ffaa6p,ffaa2s) %>% 
+  mutate(
+    tooltip_etiq = glue::glue('<b>{grado}</b> <br><br><b>Actor considerado:</b><br>{cuestionario}')
+  )
+
+
+```
+
+```{r Gráfico de evaluaciones en el tiempo, message=FALSE, warning=FALSE, echo=FALSE}
+
+g1 <- ggplot(enla_int, aes(x = año, y = ejey, color = eva, group = ejey)) +
+  geom_line_interactive(
+    show.legend = F, 
+    color = "#525252",
+    lwd = 0.1,
+    aes(
+      data_id = grado
+      )
+    ) +
+  geom_point_interactive(
+    size = 3.5,
+    aes(#Define lo que va a ir en el cuadro de texto
+      tooltip = tooltip_etiq,
+      data_id = grado
+      )
+  ) + 
+  scale_x_continuous(
+    limits = c(2006,2026),
+    breaks = seq(2007,2025, by = 1)
+  ) + 
+  scale_y_continuous(
+    limits = c(1.5,11.0)
+  ) +
+  scale_color_manual(
+    values = c(sanzo.duo("c114")[[1]],sanzo.duo("c114")[[2]],sanzo.trio("c240")[[3]]),
+    breaks = c("Censal","Muestral nacional","Muestral regional")
+  ) +
+  theme_bw() + 
+  theme(
+    panel.grid = element_blank(),
+    panel.border = element_blank(),
+    legend.position = "bottom",
+    legend.title = element_blank(),
+    legend.text = element_text(
+      size = 8,
+      color = "#626262"
+    ),
+    axis.title = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_blank(),
+    axis.text.x = element_text(
+      size = 8,
+      color = "#626262",
+      face = "bold"
+    ),
+    plot.caption = element_text(
+      size = 5,
+      color = "#626262",
+      hjust = 0.0,
+      lineheight = 0.6  # menor que 1 reduce el interlineado
+    )
+  ) +
+  annotate(#Define el bloque gris de pandemia
+    geom = "rect", 
+    xmin = 2019.5, 
+    xmax = 2021.5, 
+    ymin = 1.6, 
+    ymax = 10.3,
+    alpha = .2,
+    fill = "#787878",
+    colour = "#525252",
+    linetype = "dashed",
+    lwd = 0.1
+  ) +
+  annotate(
+    geom = "text",
+    x = 2020.5,
+    y = 10.8,
+    label = "Pandemia por \nCOVID-19",
+    size = 2.0,
+    color = "#626262"
+  ) +
+labs(
+  caption = "Nota 1. En el año 2017 no se aplicaron evaluaciones de logros de aprendizaje debido a la pérdida de días de clase que tuvieron los y las estudiantes a causa de una prolongada huelga docente y los estragos del Fenónmeno del Niño.
+  \nNota 2. Los resultados de 6.º grado de 2013 no son comparables con los de años siguientes porque las pruebas aplicaron distintos conjuntos de preguntas y los puntajes se encuentran en diferentes escalas."
+)
+
+```
+
+<div style="text-align: justify; text-justify: inter-word;">
+
+A continuación se muestra el historial de evaluaciones nacionales de aprendizaje aplicadas en distintos grados de la educación básica. Luego del 2019, los resultados por área geográfica no son directamente comparables con los de años anteriores, ya que el Ministerio de Educación adoptó la definición de ruralidad dada por el INEI, modificando la clasificación de las escuelas. Asimismo, los resultados de 2.° grado de secundaria del año 2023 no son comparables con años anteriores debido a un cambio en el diseño de la muestra (no se consideró dentro del marco muestral a las escuelas de modalidad EIB secundaria).
+
+</div>
+
+```{r Gráfico de evaluaciones en el tiempo interactivo, echo=FALSE, fig.width=8, fig.height=3.5}
+#| column: screen
+#| out-width: "100%"
+#| out-height: "100%"
+#| fig-format: svg
+
+girafe(
+ggobj = g1,
+width_svg = 12,
+options = list(
+  opts_hover(css = ''),
+  opts_hover_inv(
+    css = girafe_css(
+      css = 'opacity:0.1;',
+      line = 'opacity: 0.005;'
+  )
+),
+  opts_tooltip(
+    css = htmltools::css(
+      background = "white",
+      border = '1px solid grey;',
+      border_radius = '6px',   # opcional: bordes redondeados
+      padding = '6px',
+      font_weight = 400,
+      font_size = '12pt'
+      )
+    )
+  )
+)
+
+
+```
+
+## Cuestionarios de factores asociados en el tiempo
+
+```{r Gráfico de cuestionarios de ffaa en el tiempo, message=FALSE, warning=FALSE, echo=FALSE}
+
+g2 <- ggplot(ffaa_int, aes(x = año, y = ejey, color = eva, group = ejey)) + 
+  geom_line_interactive(
+    show.legend = F, 
+    color = "#525252",
+    lwd = 0.1,
+    aes(
+      data_id = grado
+      )
+    ) +
+  geom_point_interactive(
+    size = 3.5,
+    aes(#Define lo que va a ir en el cuadro de texto
+      tooltip = tooltip_etiq,
+      data_id = grado
+      )
+  ) +
+  scale_x_continuous(
+    limits = c(2006,2026),
+    breaks = seq(2007,2025, by = 1)
+  ) + 
+  scale_y_continuous(
+    limits = c(1.5,9.0)
+  ) +
+  scale_color_manual(
+    values = c(sanzo.duo("c114")[[1]],sanzo.duo("c114")[[2]],sanzo.trio("c240")[[3]]),
+    breaks = c("Censal","Muestral nacional","Muestral regional")
+  ) +
+  theme_bw() + 
+  theme(
+    panel.grid = element_blank(),
+    panel.border = element_blank(),
+    legend.position = "bottom",
+    legend.title = element_blank(),
+    legend.text = element_text(
+      size = 8,
+      color = "#626262"
+    ),
+    axis.title = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_blank(),
+    axis.text.x = element_text(
+      size = 8,
+      color = "#626262",
+      face = "bold"
+    ),
+    plot.caption = element_text(
+      size = 5,
+      color = "#626262",
+      hjust = 0.0,
+      lineheight = 0.6  # menor que 1 reduce el interlineado
+    )
+  ) +
+  annotate(#Define el bloque gris de pandemia
+    geom = "rect", 
+    xmin = 2019.5, 
+    xmax = 2021.5, 
+    ymin = 1.6, 
+    ymax = 8.3,
+    alpha = .2,
+    fill = "#787878",
+    colour = "#525252",
+    linetype = "dashed",
+    lwd = 0.1
+  ) +
+  annotate(
+    geom = "text",
+    x = 2020.5,
+    y = 8.7,
+    label = "Pandemia por \nCOVID-19",
+    size = 2.0,
+    color = "#626262"
+  ) +
+labs(
+  caption = "Nota 1. En el año 2017 no se aplicaron evaluaciones de logros de aprendizaje debido a la pérdida de días de clase que tuvieron los y las estudiantes a causa de una prolongada huelga docente y los estragos del Fenónmeno del Niño.
+  \nNota 2. Los resultados de aprendizaje de 6.º grado de 2013 no son comparables con los de años siguientes porque las pruebas aplicaron distintos conjuntos de preguntas y los puntajes se encuentran en diferentes escalas."
+)
+
+```
+
+<div style="text-align: justify; text-justify: inter-word;">
+
+En el marco de las Evaluaciones Nacionales de Logros de Aprendizaje (ENLA), el Ministerio de Educación ha incorporado de manera sistemática cuestionarios dirigidos a distintos actores del sistema educativo como son los directores, docentes, estudiantes y familias, con el propósito de recoger información contextual y de gestión pedagógica que permita interpretar los resultados de aprendizaje de manera más integral. La línea de tiempo presenta los cuestionarios aplicados según grado, tipo de evaluación (censal o muestral) y alcance territorial, mostrando la ampliación progresiva de los actores involucrados y la diversificación de los instrumentos a lo largo del tiempo. Este recorrido evidencia la incorporación de nuevas dimensiones de análisis y la inclusión de subpoblaciones específicas, como estudiantes con discapacidad.
+
+</div>
+
+```{r Gráfico de cuestionarios en el tiempo interactivo, echo=FALSE, fig.width=8, fig.height=3.5}
+#| column: screen
+#| out-width: "100%"
+#| out-height: "100%"
+#| fig-format: svg
+
+girafe(
+ggobj = g2,
+width_svg = 12,
+options = list(
+  opts_hover(css = ''),
+  opts_hover_inv(
+    css = girafe_css(
+      css = 'opacity:0.1;',
+      line = 'opacity: 0.005;'
+  )
+),
+  opts_tooltip(
+    css = htmltools::css(
+      background = "white",
+      border = '1px solid grey;',
+      border_radius = '6px',   # opcional: bordes redondeados
+      padding = '6px',
+      font_weight = 400,
+      font_size = '12pt'
+      )
+    )
+  )
+)
+
+
+```
+
+
+```{r}
+
+```
+
+
+
+
+
+
+
+

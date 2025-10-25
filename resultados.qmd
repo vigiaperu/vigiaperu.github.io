@@ -1,0 +1,334 @@
+---
+title: ""
+format: html
+---
+
+## Resultados nacionales de logros de aprendizaje
+
+A continuación se muestran los resultados de logros de aprendizaje a nivel nacional y por estratos y su evolución en el tiempo.
+
+```{r Librerías}
+#| message: false
+#| warning: false
+#| echo: false
+
+library(foreign)    # Importar y exportar bases de spss
+library(openxlsx)   # Facilita la lectura de archivos de Excel (".xls" y ".xlsx")
+library(fst)        # Abre archivos ".fst", que son extremadamente rápidos para guardar y cargar grandes conjuntos de datos
+library(tidyverse)  # Un conjunto de paquetes interrelacionados diseñados para análisis de datos
+library(ggplot2)    # Para crear gráficos
+library(ggtext)     # Extiende las capacidades de personalización de texto en gráficos creados con ggplot2
+library(ggpubr)     # Proporciona funciones de alto nivel para crear gráficos de publicación con ggplot2
+library(gt)         # Permite convertir data.tables en tablas con un formato bonito
+library(survey)     # Permite analizar datos provenientes de muestras complejas
+library(ggh4x)      # Permite mejorar la estética de los gráficos
+library(legendry)   # Permite crear y posicionar leyendas personalizadas en gráficos
+library(Hmisc)      # Herramientas para análisis de datos
+library(ggridges)   # Extiende ggplot2 para crear gráficos de densidad por grupos
+library(stringi)    # Permite manipulación de cadenas de texto
+library(patchwork)  # Permite combinar gráficos
+library(ggrepel)    # Permite crear etiquetas con distanciamiento automático 
+library(scales)     # Permite editar tonos, formatos de número y texto
+library(sanzo)      # Paleta de combinación de colores de Sanzo Wada
+library(ggiraph)    # Permite hacer interactivos los graficos
+library(glue)       # Permite pegar texto con variables en formato markdown
+
+```
+
+```{r Funciones especiales}
+#| message: false
+#| warning: false
+#| echo: false
+
+source(url("https://raw.githubusercontent.com/Manumarc/Resultados-ENLA/main/funciones.R"))
+
+```
+
+```{r Formato general para gráficos}
+#| message: false
+#| warning: false
+#| echo: false
+
+theme_set(
+  theme_bw() + 
+    theme(
+      panel.border = element_rect(color = "#626262",
+                                  size = 0.2),
+      panel.grid = element_blank(),
+      axis.title = element_blank(),
+      axis.ticks = element_blank(),
+      axis.text.x = element_text(size = 6,
+                                 color = "#626262"),
+      axis.text.y = element_text(size = 8,
+                                 color = "#626262",
+                                 hjust = 0),
+      plot.title.position = "plot",
+      plot.caption.position = "plot",
+      plot.title = element_text(size = 8,
+                                color = "#626262",
+                                face = "bold"),
+      plot.subtitle = element_text(size = 10,
+                                   color = "#626262"),
+      plot.caption = element_text(hjust = 0,
+                                  size = 6.0,
+                                  color = "#626262"),
+      strip.background = element_rect(fill = "transparent",
+                                      color = NA),
+      strip.text = element_text(size = 10,
+                                color = "#626262")
+    )
+)
+
+```
+
+```{r Bases de datos}
+#| message: false
+#| warning: false
+#| echo: false
+
+bd_satis <- read.csv("01 Bases/satisf_int.csv") %>%
+  mutate(
+    sat_etiq = puntocoma2(ptot,1),
+    tooltip_etiq = glue::glue('<b>Satisfactorio: {sat_etiq}</b>')
+  )
+
+```
+
+::: {.column-screen}
+
+::: {.panel-tabset}
+
+## 2.° grado de primaria
+
+Aquí se observan las tendencias históricas del **porcentaje de estudiantes que alcanzan el nivel Satisfactorio** en Lectura y Matemática para 2.° grado de primaria. 
+
+```{r Gráfico Satisfactorio 2p estático}
+#| message: false
+#| warning: false
+#| echo: false
+
+# Base de datos #
+#---------------#
+
+satisf_2p <- bd_satis %>%
+  filter(grado %in% "2.° grado de primaria")
+
+# Gráfico # 
+#---------#
+
+gsat_2p <- ggplot(satisf_2p, aes(x = Año, y = ptot)) +
+  facet_wrap(~areaeval) +
+  geom_hline(
+    yintercept = c(25,50,75),
+    linetype = "dashed",
+    lwd = 0.2,
+    alpha = 0.2,
+    color = "#525252"
+  ) +
+  geom_line(
+    lwd = 0.2,
+    alpha = 0.4,
+    color = "#626262"
+  ) +
+  geom_point_interactive(
+    size = 3.0,
+    color = color_satisf,
+    aes(#Define lo que va a ir en el cuadro de texto
+      tooltip = tooltip_etiq,
+      data_id = grado
+      )
+  ) +
+  scale_x_continuous(
+    limits = c(2007,2025),
+    breaks = seq(2007,2025, by = 1)
+  ) +
+  scale_y_continuous(
+    limits = c(0,100),
+    breaks = c(25,50,75),
+    labels = function(x) format(x, nsmall = 1, decimal.mark = ",")
+  ) +
+  annotate(#Define el bloque gris de pandemia
+    geom = "rect", 
+    xmin = 2019.5, 
+    xmax = 2021.5, 
+    ymin = 3.0, 
+    ymax = 75.0,
+    alpha = .2,
+    fill = "#787878",
+    colour = "#525252",
+    linetype = "dashed",
+    lwd = 0.1
+  ) +
+  annotate(
+    geom = "text",
+    x = 2020.5,
+    y = 80.0,
+    label = "Pandemia por \nCOVID-19",
+    size = 2.0,
+    color = "#626262",
+    alpha = 0.5
+  ) 
+
+```
+
+```{r Gráfico Satisfactorio 2p interactivo}
+#| message: false
+#| warning: false
+#| echo: false
+#| column: screen
+#| out-width: "100%"
+#| out-height: "100%"
+#| fig.width: 5.3
+#| fig.height: 3.0
+#| fig-format: svg
+
+girafe(
+ggobj = gsat_2p,
+width_svg = 12,
+options = list(
+  opts_hover(css = ''),
+  opts_hover_inv(
+    css = girafe_css(
+      css = 'opacity:0.1;',
+      line = 'opacity: 0.005;'
+  )
+),
+  opts_tooltip(
+    css = htmltools::css(
+      background = "white",
+      border = '1px solid grey;',
+      border_radius = '6px',   # opcional: bordes redondeados
+      padding = '6px',
+      font_weight = 400,
+      font_size = '12pt'
+      )
+    )
+  )
+)
+
+```
+
+### Tendencias por gestión de la escuela
+
+### Tendencias por área geográfica
+
+## 4.° grado de primaria
+
+```{r Gráfico Satisfactorio 4p estático}
+#| message: false
+#| warning: false
+#| echo: false
+
+# Base de datos #
+#---------------#
+
+satisf_4p <- bd_satis %>%
+  filter(grado %in% "4.° grado de primaria")
+
+# Gráfico # 
+#---------#
+
+gsat_4p <- ggplot(satisf_4p, aes(x = Año, y = ptot)) +
+  facet_wrap(~areaeval) +
+  geom_hline(
+    yintercept = c(25,50,75),
+    linetype = "dashed",
+    lwd = 0.2,
+    alpha = 0.2,
+    color = "#525252"
+  ) +
+  geom_line(
+    lwd = 0.2,
+    alpha = 0.4,
+    color = "#626262"
+  ) +
+  geom_point_interactive(
+    size = 3.0,
+    color = color_satisf,
+    aes(#Define lo que va a ir en el cuadro de texto
+      tooltip = tooltip_etiq,
+      data_id = grado
+      )
+  ) +
+  scale_x_continuous(
+    limits = c(2016,2025),
+    breaks = seq(2016,2025, by = 1)
+  ) +
+  scale_y_continuous(
+    limits = c(0,100),
+    breaks = c(25,50,75),
+    labels = function(x) format(x, nsmall = 1, decimal.mark = ",")
+  ) +
+  annotate(#Define el bloque gris de pandemia
+    geom = "rect", 
+    xmin = 2019.5, 
+    xmax = 2021.5, 
+    ymin = 3.0, 
+    ymax = 75.0,
+    alpha = .2,
+    fill = "#787878",
+    colour = "#525252",
+    linetype = "dashed",
+    lwd = 0.1
+  ) +
+  annotate(
+    geom = "text",
+    x = 2020.5,
+    y = 80.0,
+    label = "Pandemia por \nCOVID-19",
+    size = 2.0,
+    color = "#626262",
+    alpha = 0.5
+  ) 
+
+```
+
+```{r Gráfico Satisfactorio 4p interactivo}
+#| message: false
+#| warning: false
+#| echo: false
+#| column: screen
+#| out-width: "100%"
+#| out-height: "100%"
+#| fig.width: 5.3
+#| fig.height: 3.0
+#| fig-format: svg
+
+girafe(
+ggobj = gsat_4p,
+width_svg = 12,
+options = list(
+  opts_hover(css = ''),
+  opts_hover_inv(
+    css = girafe_css(
+      css = 'opacity:0.1;',
+      line = 'opacity: 0.005;'
+  )
+),
+  opts_tooltip(
+    css = htmltools::css(
+      background = "white",
+      border = '1px solid grey;',
+      border_radius = '6px',   # opcional: bordes redondeados
+      padding = '6px',
+      font_weight = 400,
+      font_size = '12pt'
+      )
+    )
+  )
+)
+
+```
+
+## 6.° grado de primaria
+Gráfico o descripción.
+
+## 2.° grado de secundaria
+Gráfico o descripción.
+
+## 5.° grado de secundaria
+Gráfico o descripción.
+
+:::
+
+:::

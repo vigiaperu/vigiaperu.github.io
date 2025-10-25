@@ -1,0 +1,23 @@
+---
+title: "Vigía"
+subtitle: "Aprendizajes en la mira"
+format:
+  html:
+    theme: default
+    css: styles.scss
+image: vigia.jpg
+about: # https://quarto.org/docs/websites/website-about.html
+  template: jolla
+  image-width: 13em
+  image-shape: round
+  links: 
+    - icon: github
+      text: Github
+      href: https://github.com/Manumarc
+---
+
+## Objetivo
+
+Vigía es un espacio abierto y gratuito que reúne, organiza y analiza información sobre la evolución de los aprendizajes de los estudiantes peruanos en los distintos grados de la educación básica regular. A partir de las bases de datos públicas de evaluaciones estandarizadas a gran escala, se busca ofrecer evidencia clara y actualizada sobre el desempeño académico a nivel nacional.
+
+Nuestro objetivo es brindar a investigadores, tomadores de decisiones locales y nacionales, docentes y ciudadanía en general una herramienta confiable para evidenciar cómo evolucionan los aprendizajes de los estudiantes en primaria y secundaria, identificar brechas y avances, y contribuir al diseño de políticas y acciones que fortalezcan la educación en el país.

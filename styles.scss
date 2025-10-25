@@ -1,0 +1,29 @@
+/*-- scss:defaults --*/
+
+// Sass Variables
+// https://quarto.org/docs/output-formats/html-themes.html#sass-variables
+
+/* Colores de texto */
+
+$body-bg: #FFFFFF;
+$body-color: rgb(55, 58, 60);
+$link-color: rgb(39, 128, 227);
+
+/*-- scss:rules --*/
+/*:root { 
+  font-size: 10px;  /* Aumenta toda la escala tipográfica 
+} */
+
+/*-- scss:rules --*/
+.page-content,
+.quarto-content,
+.content {
+  max-width: 1500%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  font-size: 16px;  /* Usa el tamaño base de arriba */
+}
+

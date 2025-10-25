@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Vigía",
+    "section": "",
+    "text": "Vigía es un espacio abierto y gratuito que reúne, organiza y analiza información sobre la evolución de los aprendizajes de los estudiantes peruanos en los distintos grados de la educación básica regular. A partir de las bases de datos públicas de evaluaciones estandarizadas a gran escala, se busca ofrecer evidencia clara y actualizada sobre el desempeño académico a nivel nacional.\nNuestro objetivo es brindar a investigadores, tomadores de decisiones locales y nacionales, docentes y ciudadanía en general una herramienta confiable para evidenciar cómo evolucionan los aprendizajes de los estudiantes en primaria y secundaria, identificar brechas y avances, y contribuir al diseño de políticas y acciones que fortalezcan la educación en el país."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#objetivo",
+    "href": "index.html#objetivo",
+    "title": "Vigía",
+    "section": "",
+    "text": "Vigía es un espacio abierto y gratuito que reúne, organiza y analiza información sobre la evolución de los aprendizajes de los estudiantes peruanos en los distintos grados de la educación básica regular. A partir de las bases de datos públicas de evaluaciones estandarizadas a gran escala, se busca ofrecer evidencia clara y actualizada sobre el desempeño académico a nivel nacional.\nNuestro objetivo es brindar a investigadores, tomadores de decisiones locales y nacionales, docentes y ciudadanía en general una herramienta confiable para evidenciar cómo evolucionan los aprendizajes de los estudiantes en primaria y secundaria, identificar brechas y avances, y contribuir al diseño de políticas y acciones que fortalezcan la educación en el país."
+  },
+  {
+    "objectID": "evaluaciones.html",
+    "href": "evaluaciones.html",
+    "title": "Vigía: observatorio de aprendizajes",
+    "section": "",
+    "text": "A continuación se muestra el historial de evaluaciones nacionales de aprendizaje aplicadas en distintos grados de la educación básica. Luego del 2019, los resultados por área geográfica no son directamente comparables con los de años anteriores, ya que el Ministerio de Educación adoptó la definición de ruralidad dada por el INEI, modificando la clasificación de las escuelas. Asimismo, los resultados de 2.° grado de secundaria del año 2023 no son comparables con años anteriores debido a un cambio en el diseño de la muestra (no se consideró dentro del marco muestral a las escuelas de modalidad EIB secundaria)."
+  },
+  {
+    "objectID": "evaluaciones.html#evaluaciones-de-logros-de-aprendizaje-en-el-tiempo",
+    "href": "evaluaciones.html#evaluaciones-de-logros-de-aprendizaje-en-el-tiempo",
+    "title": "Vigía: observatorio de aprendizajes",
+    "section": "",
+    "text": "A continuación se muestra el historial de evaluaciones nacionales de aprendizaje aplicadas en distintos grados de la educación básica. Luego del 2019, los resultados por área geográfica no son directamente comparables con los de años anteriores, ya que el Ministerio de Educación adoptó la definición de ruralidad dada por el INEI, modificando la clasificación de las escuelas. Asimismo, los resultados de 2.° grado de secundaria del año 2023 no son comparables con años anteriores debido a un cambio en el diseño de la muestra (no se consideró dentro del marco muestral a las escuelas de modalidad EIB secundaria)."
+  },
+  {
+    "objectID": "evaluaciones.html#cuestionarios-de-factores-asociados-en-el-tiempo",
+    "href": "evaluaciones.html#cuestionarios-de-factores-asociados-en-el-tiempo",
+    "title": "Vigía: observatorio de aprendizajes",
+    "section": "Cuestionarios de factores asociados en el tiempo",
+    "text": "Cuestionarios de factores asociados en el tiempo\n\nEn el marco de las Evaluaciones Nacionales de Logros de Aprendizaje (ENLA), el Ministerio de Educación ha incorporado de manera sistemática cuestionarios dirigidos a distintos actores del sistema educativo como son los directores, docentes, estudiantes y familias, con el propósito de recoger información contextual y de gestión pedagógica que permita interpretar los resultados de aprendizaje de manera más integral. La línea de tiempo presenta los cuestionarios aplicados según grado, tipo de evaluación (censal o muestral) y alcance territorial, mostrando la ampliación progresiva de los actores involucrados y la diversificación de los instrumentos a lo largo del tiempo. Este recorrido evidencia la incorporación de nuevas dimensiones de análisis y la inclusión de subpoblaciones específicas, como estudiantes con discapacidad."
+  },
+  {
+    "objectID": "resultados.html",
+    "href": "resultados.html",
+    "title": "Vigía: observatorio de aprendizajes",
+    "section": "",
+    "text": "A continuación se muestran los resultados de logros de aprendizaje a nivel nacional y por estratos y su evolución en el tiempo.\n\n\n2.° grado de primaria4.° grado de primaria6.° grado de primaria2.° grado de secundaria5.° grado de secundaria\n\n\nAquí se observan las tendencias históricas del porcentaje de estudiantes que alcanzan el nivel Satisfactorio en Lectura y Matemática para 2.° grado de primaria.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción."
+  },
+  {
+    "objectID": "resultados.html#evaluaciones-de-logros-de-aprendizaje-en-el-tiempo",
+    "href": "resultados.html#evaluaciones-de-logros-de-aprendizaje-en-el-tiempo",
+    "title": "Vigía: observatorio de aprendizajes",
+    "section": "",
+    "text": "2.° grado de primaria4.° grado de primaria6.° grado de primaria2.° grado de secundaria5.° grado de secundaria\n\n\n\n\n\n\n\n\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción."
+  },
+  {
+    "objectID": "00_procesamiento_resultados_Enlas.html",
+    "href": "00_procesamiento_resultados_Enlas.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "# Limpia el entorno de trabajo de R #\n#-----------------------------------#\n\nrm(list=ls()) \n\noptions(scipen = 999)\n# Configura las opciones globales para los chunks de código en un documento #\n#---------------------------------------------------------------------------#\n\nknitr::opts_chunk$set(echo=TRUE,      # Hace que el código del chunk se muestre en el documento final.\n                      warning=FALSE,  # Suprime la visualización de advertencias generadas en el documento final. \n                      message=FALSE)  # Evita que se muestren mensajes en el documento final.\n\n\nlibrary(foreign)    # Importar y exportar bases de spss\nlibrary(openxlsx)   # Facilita la lectura de archivos de Excel (\".xls\" y \".xlsx\")\nlibrary(fst)        # Abre archivos \".fst, que son extremadamente rápidos para guardar y cargar grandes conjuntos de datos\nlibrary(tidyverse)  # Un conjunto de paquetes interrelacionados diseñados para análisis de datos\nlibrary(ggplot2)    # Para crear gráficos\nlibrary(ggtext)     # Extiende las capacidades de personalización de texto en gráficos creados con ggplot2\nlibrary(ggpubr)     # Proporciona funciones de alto nivel para crear gráficos de publicación con ggplot2\nlibrary(gt)         # Permite convertir data.tables en tablas con un formato bonito\nlibrary(survey)     # Permite analizar datos provenientes de muestras complejas\nlibrary(ggh4x)      # Permite mejorar la estética de los gráficos\nlibrary(legendry)   # Permite crear y posicionar leyendas personalizadas en gráficos\nlibrary(Hmisc)      # Herramientas para análisis de datos\nlibrary(ggridges)   # Extiende ggplot2 para crear gráficos de densidad por grupos\nlibrary(stringi)    # Permite manipulación de cadenas de texto\nlibrary(patchwork)  # Permite combinar gráficos\nlibrary(ggrepel)    # Permite crear etiquetas con distanciamiento automático \nlibrary(scales)     # Permite editar tonos, formatos de número y texto\nlibrary(sanzo)      # Paleta de combinación de colores de Sanzo Wada\n\n\ndevtools::source_url(\"https://raw.githubusercontent.com/Manumarc/Resultados-ENLA/refs/heads/main/funciones.R\")"
+  },
+  {
+    "objectID": "resultados.html#resultados-de-logros-de-aprendizaje-en-el-tiempo",
+    "href": "resultados.html#resultados-de-logros-de-aprendizaje-en-el-tiempo",
+    "title": "Vigía: observatorio de aprendizajes",
+    "section": "",
+    "text": "2.° grado de primaria4.° grado de primaria6.° grado de primaria2.° grado de secundaria5.° grado de secundaria\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción."
+  },
+  {
+    "objectID": "resultados.html#resultados-nacionales-de-logros-de-aprendizaje-en-el-tiempo",
+    "href": "resultados.html#resultados-nacionales-de-logros-de-aprendizaje-en-el-tiempo",
+    "title": "Vigía: observatorio de aprendizajes",
+    "section": "",
+    "text": "2.° grado de primaria4.° grado de primaria6.° grado de primaria2.° grado de secundaria5.° grado de secundaria\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción."
+  },
+  {
+    "objectID": "resultados_regionales.html",
+    "href": "resultados_regionales.html",
+    "title": "Vigía: observatorio de aprendizajes",
+    "section": "",
+    "text": "2.° grado de primaria4.° grado de primaria6.° grado de primaria2.° grado de secundaria5.° grado de secundaria\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción."
+  },
+  {
+    "objectID": "resultados_regionales.html#resultados-regionales-de-logros-de-aprendizaje-en-el-tiempo",
+    "href": "resultados_regionales.html#resultados-regionales-de-logros-de-aprendizaje-en-el-tiempo",
+    "title": "Vigía: observatorio de aprendizajes",
+    "section": "",
+    "text": "2.° grado de primaria4.° grado de primaria6.° grado de primaria2.° grado de secundaria5.° grado de secundaria\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción."
+  },
+  {
+    "objectID": "resultados.html#resultados-nacionales-de-logros-de-aprendizaje",
+    "href": "resultados.html#resultados-nacionales-de-logros-de-aprendizaje",
+    "title": "Vigía: observatorio de aprendizajes",
+    "section": "",
+    "text": "A continuación se muestran los resultados de logros de aprendizaje a nivel nacional y por estratos y su evolución en el tiempo.\n\n\n2.° grado de primaria4.° grado de primaria6.° grado de primaria2.° grado de secundaria5.° grado de secundaria\n\n\nAquí se observan las tendencias históricas del porcentaje de estudiantes que alcanzan el nivel Satisfactorio en Lectura y Matemática para 2.° grado de primaria.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGráfico o descripción.\n\n\nGráfico o descripción.\n\n\nGráfico o descripción."
+  }
+]

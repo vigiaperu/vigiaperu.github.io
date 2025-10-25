@@ -1,0 +1,111 @@
+---
+title: ""
+format: html
+---
+
+## Resultados regionales de logros de aprendizaje en el tiempo
+
+```{r Librerías}
+#| message: false
+#| warning: false
+#| echo: false
+
+library(foreign)    # Importar y exportar bases de spss
+library(openxlsx)   # Facilita la lectura de archivos de Excel (".xls" y ".xlsx")
+library(fst)        # Abre archivos ".fst", que son extremadamente rápidos para guardar y cargar grandes conjuntos de datos
+library(tidyverse)  # Un conjunto de paquetes interrelacionados diseñados para análisis de datos
+library(ggplot2)    # Para crear gráficos
+library(ggtext)     # Extiende las capacidades de personalización de texto en gráficos creados con ggplot2
+library(ggpubr)     # Proporciona funciones de alto nivel para crear gráficos de publicación con ggplot2
+library(gt)         # Permite convertir data.tables en tablas con un formato bonito
+library(survey)     # Permite analizar datos provenientes de muestras complejas
+library(ggh4x)      # Permite mejorar la estética de los gráficos
+library(legendry)   # Permite crear y posicionar leyendas personalizadas en gráficos
+library(Hmisc)      # Herramientas para análisis de datos
+library(ggridges)   # Extiende ggplot2 para crear gráficos de densidad por grupos
+library(stringi)    # Permite manipulación de cadenas de texto
+library(patchwork)  # Permite combinar gráficos
+library(ggrepel)    # Permite crear etiquetas con distanciamiento automático 
+library(scales)     # Permite editar tonos, formatos de número y texto
+library(sanzo)      # Paleta de combinación de colores de Sanzo Wada
+library(ggiraph)    # Permite hacer interactivos los graficos
+library(glue)       # Permite pegar texto con variables en formato markdown
+
+```
+
+```{r Funciones especiales}
+#| message: false
+#| warning: false
+#| echo: false
+
+devtools::source_url("https://raw.githubusercontent.com/Manumarc/Resultados-ENLA/refs/heads/main/funciones.R")
+
+```
+
+```{r Formato general para gráficos}
+#| message: false
+#| warning: false
+#| echo: false
+
+theme_set(
+  theme_bw() + 
+    theme(
+      panel.border = element_rect(color = "#626262",
+                                  size = 0.2),
+      panel.grid = element_blank(),
+      axis.title = element_blank(),
+      axis.ticks = element_blank(),
+      axis.text.x = element_text(size = 6,
+                                 color = "#626262"),
+      axis.text.y = element_text(size = 8,
+                                 color = "#626262",
+                                 hjust = 0),
+      plot.title.position = "plot",
+      plot.caption.position = "plot",
+      plot.title = element_text(size = 8,
+                                color = "#626262",
+                                face = "bold"),
+      plot.subtitle = element_text(size = 10,
+                                   color = "#626262"),
+      plot.caption = element_text(hjust = 0,
+                                  size = 6.0,
+                                  color = "#626262"),
+      strip.background = element_rect(fill = "transparent",
+                                      color = NA),
+      strip.text = element_text(size = 10,
+                                color = "#626262")
+    )
+)
+
+```
+
+```{r Bases de datos}
+#| message: false
+#| warning: false
+#| echo: false
+
+
+```
+
+::: {.column-screen}
+
+::: {.panel-tabset}
+
+### 2.° grado de primaria
+Gráfico o descripción.
+
+### 4.° grado de primaria
+Gráfico o descripción.
+
+### 6.° grado de primaria
+Gráfico o descripción.
+
+### 2.° grado de secundaria
+Gráfico o descripción.
+
+### 5.° grado de secundaria
+Gráfico o descripción.
+
+:::
+
+:::

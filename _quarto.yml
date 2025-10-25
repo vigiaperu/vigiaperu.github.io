@@ -1,0 +1,16 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Vigía: observatorio de aprendizajes"
+  navbar:
+    left:
+      - href: evaluaciones.qmd
+        text: Evaluaciones y cuestionarios
+      - href: resultados.qmd
+        text: Resultados nacionales
+      - href: resultados_regionales.qmd
+        text: Resultados regionales
+      
+      

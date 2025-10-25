@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>evaluaciones – Vigía: observatorio de aprendizajes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-1d4f84655f446305ac42a8f1abcf7405.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="site_libs/d3-bundle-5.16.0/d3-bundle.min.js"></script>
+
+<script src="site_libs/d3-lasso-0.0.5/d3-lasso.min.js"></script>
+
+<script src="site_libs/save-svg-as-png-1.4.17/save-svg-as-png.min.js"></script>
+
+<script src="site_libs/flatbush-4.4.0/flatbush.min.js"></script>
+
+<link href="site_libs/ggiraphjs-0.8.10/ggiraphjs.min.css" rel="stylesheet">
+
+<script src="site_libs/ggiraphjs-0.8.10/ggiraphjs.min.js"></script>
+
+<script src="site_libs/girafe-binding-0.9.0/girafe.js"></script>
+
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Vigía: observatorio de aprendizajes</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./evaluaciones.html" aria-current="page"> 
+<span class="menu-text">Evaluaciones y cuestionarios</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resultados.html"> 
+<span class="menu-text">Resultados nacionales</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resultados_regionales.html"> 
+<span class="menu-text">Resultados regionales</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="evaluaciones-de-logros-de-aprendizaje-en-el-tiempo" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="evaluaciones-de-logros-de-aprendizaje-en-el-tiempo">Evaluaciones de logros de aprendizaje en el tiempo</h2>
+<div style="text-align: justify; text-justify: inter-word;">
+<p>A continuación se muestra el historial de evaluaciones nacionales de aprendizaje aplicadas en distintos grados de la educación básica. Luego del 2019, los resultados por área geográfica no son directamente comparables con los de años anteriores, ya que el Ministerio de Educación adoptó la definición de ruralidad dada por el INEI, modificando la clasificación de las escuelas. Asimismo, los resultados de 2.° grado de secundaria del año 2023 no son comparables con años anteriores debido a un cambio en el diseño de la muestra (no se consideró dentro del marco muestral a las escuelas de modalidad EIB secundaria).</p>
+</div>
+<div class="cell page-columns page-full">
+<div class="cell-output-display column-screen">
+<div class="girafe html-widget html-fill-item" id="htmlwidget-44fdd9867cbbd821cda0" style="width:100%;height:100%;"></div>
+<script type="application/json" data-for="htmlwidget-44fdd9867cbbd821cda0">{"x":{"html":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='ggiraph-svg' role='graphics-document' id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b' viewBox='0 0 864 252'>\n <defs id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_defs'>\n  <clipPath id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_c1'>\n   <rect x='0' y='0' width='864' height='252'/>\n  <\/clipPath>\n  <clipPath id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_c2'>\n   <rect x='8.22' y='5.48' width='850.3' height='172.19'/>\n  <\/clipPath>\n <\/defs>\n <g id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_rootg' class='ggiraph-svg-rootg'>\n  <g clip-path='url(#svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_c1)'>\n   <rect x='0' y='0' width='864' height='252' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.75' stroke-linejoin='round' stroke-linecap='round' class='ggiraph-svg-bg'/>\n   <rect x='0' y='0' width='864' height='252' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='round'/>\n  <\/g>\n  <g clip-path='url(#svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_c2)'>\n   <rect x='8.22' y='5.48' width='850.3' height='172.19' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <polyline id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e1' points='85.52,161.60 124.17,161.60 162.82,161.60 201.47,161.60 240.12,161.60 278.77,161.60 317.42,161.60 356.07,161.60 394.72,161.60 433.37,161.60 510.67,161.60 549.32,161.60 665.27,161.60 703.92,161.60' fill='none' stroke='#525252' stroke-opacity='1' stroke-width='0.21' stroke-linejoin='round' stroke-linecap='butt' data-id='2.° grado de primaria'/>\n   <polyline id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e2' points='433.37,128.65 510.67,128.65 549.32,128.65 665.27,128.65 703.92,128.65 742.57,128.65 781.22,128.65' fill='none' stroke='#525252' stroke-opacity='1' stroke-width='0.21' stroke-linejoin='round' stroke-linecap='butt' data-id='4.° grado de primaria'/>\n   <polyline id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e3' points='317.42,95.69 510.67,95.69 665.27,95.69 742.57,95.69' fill='none' stroke='#525252' stroke-opacity='1' stroke-width='0.21' stroke-linejoin='round' stroke-linecap='butt' data-id='6.° grado de primaria'/>\n   <polyline id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e4' points='394.72,62.74 433.37,62.74 510.67,62.74 549.32,62.74 665.27,62.74 703.92,62.74 781.22,62.74' fill='none' stroke='#525252' stroke-opacity='1' stroke-width='0.21' stroke-linejoin='round' stroke-linecap='butt' data-id='2.° grado de secundaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e5' cx='85.52' cy='161.6' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e6' cx='124.17' cy='161.6' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e7' cx='162.82' cy='161.6' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e8' cx='201.47' cy='161.6' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e9' cx='240.12' cy='161.6' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e10' cx='278.77' cy='161.6' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e11' cx='317.42' cy='161.6' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e12' cx='356.07' cy='161.6' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e13' cx='394.72' cy='161.6' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e14' cx='433.37' cy='161.6' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e15' cx='510.67' cy='161.6' r='3.07pt' fill='#008AA1' fill-opacity='1' stroke='#008AA1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e16' cx='549.32' cy='161.6' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e17' cx='665.27' cy='161.6' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e18' cx='703.92' cy='161.6' r='3.07pt' fill='#008AA1' fill-opacity='1' stroke='#008AA1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e19' cx='433.37' cy='128.65' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='4.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e20' cx='510.67' cy='128.65' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='4.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e21' cx='549.32' cy='128.65' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='4.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e22' cx='665.27' cy='128.65' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='4.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e23' cx='703.92' cy='128.65' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='4.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e24' cx='742.57' cy='128.65' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='4.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e25' cx='781.22' cy='128.65' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática' data-id='4.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e26' cx='317.42' cy='95.69' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;6.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Escritura (muestra nacional) &amp;lt;br/&amp;gt;Matemática &amp;lt;br/&amp;gt;Ciudadanía' data-id='6.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e27' cx='510.67' cy='95.69' r='3.07pt' fill='#008AA1' fill-opacity='1' stroke='#008AA1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;6.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Ciudadanía' data-id='6.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e28' cx='665.27' cy='95.69' r='3.07pt' fill='#008AA1' fill-opacity='1' stroke='#008AA1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;6.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática &amp;lt;br/&amp;gt;Habilidades socioemocionales' data-id='6.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e29' cx='742.57' cy='95.69' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;6.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática &amp;lt;br/&amp;gt;Habilidades socioemocionales' data-id='6.° grado de primaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e30' cx='394.72' cy='62.74' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Escritura (muestra nacional) &amp;lt;br/&amp;gt;Matemática' data-id='2.° grado de secundaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e31' cx='433.37' cy='62.74' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática &amp;lt;br/&amp;gt;Ciencias sociales' data-id='2.° grado de secundaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e32' cx='510.67' cy='62.74' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Escritura (muestra nacional) &amp;lt;br/&amp;gt;Matemática &amp;lt;br/&amp;gt;Ciencias sociales &amp;lt;br/&amp;gt;Ciencia y tecnología' data-id='2.° grado de secundaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e33' cx='549.32' cy='62.74' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática &amp;lt;br/&amp;gt;Ciencia y tecnología' data-id='2.° grado de secundaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e34' cx='665.27' cy='62.74' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática &amp;lt;br/&amp;gt;Ciencia y tecnología &amp;lt;br/&amp;gt;Habilidades socioemocionales' data-id='2.° grado de secundaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e35' cx='703.92' cy='62.74' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática &amp;lt;br/&amp;gt;Ciencias sociales &amp;lt;br/&amp;gt;Habilidades socioemocionales' data-id='2.° grado de secundaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e36' cx='781.22' cy='62.74' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática &amp;lt;br/&amp;gt;Ciencia y tecnología' data-id='2.° grado de secundaria'/>\n   <circle id='svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_e37' cx='781.22' cy='29.78' r='3.07pt' fill='#008AA1' fill-opacity='1' stroke='#008AA1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;5.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Áreas evaluadas:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Lectura &amp;lt;br/&amp;gt;Matemática &amp;lt;br/&amp;gt;Ciudadanía &amp;lt;br/&amp;gt;Ciencia y tecnología' data-id='5.° grado de secundaria'/>\n   <rect x='568.65' y='24.84' width='77.3' height='143.35' fill='#787878' fill-opacity='0.2' stroke='#525252' stroke-opacity='1' stroke-width='0.21' stroke-dasharray='4,4' stroke-linejoin='miter' stroke-linecap='butt'/>\n   <text x='588.81' y='14.54' font-size='4.27pt' font-family='Arial' fill='#626262' fill-opacity='1'>Pandemia por <\/text>\n   <text x='594.18' y='22.74' font-size='4.27pt' font-family='Arial' fill='#626262' fill-opacity='1'>COVID-19<\/text>\n  <\/g>\n  <g clip-path='url(#svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b_c1)'>\n   <text x='76.62' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2007<\/text>\n   <text x='115.27' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2008<\/text>\n   <text x='153.92' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2009<\/text>\n   <text x='192.57' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2010<\/text>\n   <text x='231.44' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2011<\/text>\n   <text x='269.87' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2012<\/text>\n   <text x='308.52' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2013<\/text>\n   <text x='347.17' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2014<\/text>\n   <text x='385.82' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2015<\/text>\n   <text x='424.47' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2016<\/text>\n   <text x='463.12' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2017<\/text>\n   <text x='501.77' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2018<\/text>\n   <text x='540.42' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2019<\/text>\n   <text x='579.07' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2020<\/text>\n   <text x='617.72' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2021<\/text>\n   <text x='656.37' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2022<\/text>\n   <text x='695.02' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2023<\/text>\n   <text x='733.67' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2024<\/text>\n   <text x='772.32' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2025<\/text>\n   <rect x='313.78' y='200.97' width='239.19' height='28.24' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <rect x='319.26' y='206.45' width='17.28' height='17.28' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <circle cx='327.9' cy='215.09' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round'/>\n   <rect x='372.4' y='206.45' width='17.28' height='17.28' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <circle cx='381.04' cy='215.09' r='3.07pt' fill='#008AA1' fill-opacity='1' stroke='#008AA1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round'/>\n   <rect x='463.35' y='206.45' width='17.28' height='17.28' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <circle cx='471.99' cy='215.09' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round'/>\n   <text x='342.02' y='217.96' font-size='6pt' font-family='Arial' fill='#626262' fill-opacity='1'>Censal<\/text>\n   <text x='395.16' y='217.96' font-size='6pt' font-family='Arial' fill='#626262' fill-opacity='1'>Muestral nacional<\/text>\n   <text x='486.11' y='217.96' font-size='6pt' font-family='Arial' fill='#626262' fill-opacity='1'>Muestral regional<\/text>\n   <text x='8.22' y='238.27' font-size='3.75pt' font-family='Arial' fill='#626262' fill-opacity='1'>Nota 1. En el año 2017 no se aplicaron evaluaciones de logros de aprendizaje debido a la pérdida de días de clase que tuvieron los y las estudiantes a causa de una prolongada huelga docente y los estragos del Fenónmeno del Niño.<\/text>\n   <text x='8.22' y='241.87' font-size='3.75pt' font-family='Arial' fill='#626262' fill-opacity='1'>  <\/text>\n   <text x='8.22' y='245.47' font-size='3.75pt' font-family='Arial' fill='#626262' fill-opacity='1'>Nota 2. Los resultados de 6.º grado de 2013 no son comparables con los de años siguientes porque las pruebas aplicaron distintos conjuntos de preguntas y los puntajes se encuentran en diferentes escalas.<\/text>\n  <\/g>\n <\/g>\n<\/svg>","js":null,"uid":"svg_1d4322fe_8d54_427b_9aba_cd0dbb87575b","ratio":3.428571428571428,"settings":{"tooltip":{"css":".tooltip_SVGID_ { background:white;border:1px solid grey;;border-radius:6px;padding:6px;font-weight:400;font-size:12pt; ; position:absolute;pointer-events:none;z-index:999;}","placement":"doc","opacity":0.9,"offx":10,"offy":0,"use_cursor_pos":true,"use_fill":false,"use_stroke":false,"delay_over":200,"delay_out":500},"hover":{"css":"","reactive":false,"nearest_distance":null},"hover_inv":{"css":".hover_inv_SVGID_ { opacity:0.1; }\nline.hover_inv_SVGID_, polyline.hover_inv_SVGID_ { opacity: 0.005; }"},"hover_key":{"css":".hover_key_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_key_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_key_SVGID_ { fill:orange;stroke:black; }\nline.hover_key_SVGID_, polyline.hover_key_SVGID_ { fill:none;stroke:orange; }\nrect.hover_key_SVGID_, polygon.hover_key_SVGID_, path.hover_key_SVGID_ { fill:orange;stroke:none; }\nimage.hover_key_SVGID_ { stroke:orange; }","reactive":true},"hover_theme":{"css":".hover_theme_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_theme_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_theme_SVGID_ { fill:orange;stroke:black; }\nline.hover_theme_SVGID_, polyline.hover_theme_SVGID_ { fill:none;stroke:orange; }\nrect.hover_theme_SVGID_, polygon.hover_theme_SVGID_, path.hover_theme_SVGID_ { fill:orange;stroke:none; }\nimage.hover_theme_SVGID_ { stroke:orange; }","reactive":true},"select":{"css":".select_data_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_data_SVGID_ { stroke:none;fill:red; }\ncircle.select_data_SVGID_ { fill:red;stroke:black; }\nline.select_data_SVGID_, polyline.select_data_SVGID_ { fill:none;stroke:red; }\nrect.select_data_SVGID_, polygon.select_data_SVGID_, path.select_data_SVGID_ { fill:red;stroke:none; }\nimage.select_data_SVGID_ { stroke:red; }","type":"multiple","only_shiny":true,"selected":[]},"select_inv":{"css":""},"select_key":{"css":".select_key_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_key_SVGID_ { stroke:none;fill:red; }\ncircle.select_key_SVGID_ { fill:red;stroke:black; }\nline.select_key_SVGID_, polyline.select_key_SVGID_ { fill:none;stroke:red; }\nrect.select_key_SVGID_, polygon.select_key_SVGID_, path.select_key_SVGID_ { fill:red;stroke:none; }\nimage.select_key_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"select_theme":{"css":".select_theme_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_theme_SVGID_ { stroke:none;fill:red; }\ncircle.select_theme_SVGID_ { fill:red;stroke:black; }\nline.select_theme_SVGID_, polyline.select_theme_SVGID_ { fill:none;stroke:red; }\nrect.select_theme_SVGID_, polygon.select_theme_SVGID_, path.select_theme_SVGID_ { fill:red;stroke:none; }\nimage.select_theme_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"zoom":{"min":1,"max":1,"duration":300},"toolbar":{"position":"topright","pngname":"diagram","tooltips":null,"fixed":false,"hidden":[],"delay_over":200,"delay_out":500},"sizing":{"rescale":true,"width":1}}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="cuestionarios-de-factores-asociados-en-el-tiempo" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="cuestionarios-de-factores-asociados-en-el-tiempo">Cuestionarios de factores asociados en el tiempo</h2>
+<div style="text-align: justify; text-justify: inter-word;">
+<p>En el marco de las Evaluaciones Nacionales de Logros de Aprendizaje (ENLA), el Ministerio de Educación ha incorporado de manera sistemática cuestionarios dirigidos a distintos actores del sistema educativo como son los directores, docentes, estudiantes y familias, con el propósito de recoger información contextual y de gestión pedagógica que permita interpretar los resultados de aprendizaje de manera más integral. La línea de tiempo presenta los cuestionarios aplicados según grado, tipo de evaluación (censal o muestral) y alcance territorial, mostrando la ampliación progresiva de los actores involucrados y la diversificación de los instrumentos a lo largo del tiempo. Este recorrido evidencia la incorporación de nuevas dimensiones de análisis y la inclusión de subpoblaciones específicas, como estudiantes con discapacidad.</p>
+</div>
+<div class="cell page-columns page-full">
+<div class="cell-output-display column-screen">
+<div class="girafe html-widget html-fill-item" id="htmlwidget-340faac76b59c797e221" style="width:100%;height:100%;"></div>
+<script type="application/json" data-for="htmlwidget-340faac76b59c797e221">{"x":{"html":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='ggiraph-svg' role='graphics-document' id='svg_8505e407_9513_4b83_acf9_44104d532c3a' viewBox='0 0 864 252'>\n <defs id='svg_8505e407_9513_4b83_acf9_44104d532c3a_defs'>\n  <clipPath id='svg_8505e407_9513_4b83_acf9_44104d532c3a_c1'>\n   <rect x='0' y='0' width='864' height='252'/>\n  <\/clipPath>\n  <clipPath id='svg_8505e407_9513_4b83_acf9_44104d532c3a_c2'>\n   <rect x='8.22' y='5.48' width='850.3' height='172.19'/>\n  <\/clipPath>\n <\/defs>\n <g id='svg_8505e407_9513_4b83_acf9_44104d532c3a_rootg' class='ggiraph-svg-rootg'>\n  <g clip-path='url(#svg_8505e407_9513_4b83_acf9_44104d532c3a_c1)'>\n   <rect x='0' y='0' width='864' height='252' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='0.75' stroke-linejoin='round' stroke-linecap='round' class='ggiraph-svg-bg'/>\n   <rect x='0' y='0' width='864' height='252' fill='#FFFFFF' fill-opacity='1' stroke='#FFFFFF' stroke-opacity='1' stroke-width='1.07' stroke-linejoin='round' stroke-linecap='round'/>\n  <\/g>\n  <g clip-path='url(#svg_8505e407_9513_4b83_acf9_44104d532c3a_c2)'>\n   <rect x='8.22' y='5.48' width='850.3' height='172.19' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <polyline id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e1' points='317.42,159.40 356.07,159.40 394.72,159.40 433.37,159.40 549.32,159.40 665.27,159.40 703.92,159.40' fill='none' stroke='#525252' stroke-opacity='1' stroke-width='0.21' stroke-linejoin='round' stroke-linecap='butt' data-id='2.° grado de primaria'/>\n   <polyline id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e2' points='433.37,117.66 510.67,117.66 549.32,117.66 665.27,117.66 703.92,117.66 742.57,117.66' fill='none' stroke='#525252' stroke-opacity='1' stroke-width='0.21' stroke-linejoin='round' stroke-linecap='butt' data-id='4.° grado de primaria'/>\n   <polyline id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e3' points='317.42,75.92 742.57,75.92' fill='none' stroke='#525252' stroke-opacity='1' stroke-width='0.21' stroke-linejoin='round' stroke-linecap='butt' data-id='6.° grado de primaria'/>\n   <polyline id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e4' points='394.72,34.18 433.37,34.18 510.67,34.18 549.32,34.18 665.27,34.18 703.92,34.18' fill='none' stroke='#525252' stroke-opacity='1' stroke-width='0.21' stroke-linejoin='round' stroke-linecap='butt' data-id='2.° grado de secundaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e5' cx='317.42' cy='159.4' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente' data-id='2.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e6' cx='356.07' cy='159.4' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente de Comunicación &amp;lt;br/&amp;gt;Docente de Matemática' data-id='2.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e7' cx='394.72' cy='159.4' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente &amp;lt;br/&amp;gt;Padres de familia' data-id='2.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e8' cx='433.37' cy='159.4' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Padres de familia' data-id='2.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e9' cx='549.32' cy='159.4' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente &amp;lt;br/&amp;gt;Padres de familia' data-id='2.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e10' cx='665.27' cy='159.4' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente &amp;lt;br/&amp;gt;Padres de familia ' data-id='2.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e11' cx='703.92' cy='159.4' r='3.07pt' fill='#008AA1' fill-opacity='1' stroke='#008AA1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente &amp;lt;br/&amp;gt;Padres de familia' data-id='2.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e12' cx='433.37' cy='117.66' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Docente &amp;lt;br/&amp;gt;Padres de familiar' data-id='4.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e13' cx='510.67' cy='117.66' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente de Comunicación &amp;lt;br/&amp;gt;Padres de familia' data-id='4.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e14' cx='549.32' cy='117.66' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente de Matemática &amp;lt;br/&amp;gt;Padres de familia' data-id='4.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e15' cx='665.27' cy='117.66' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Docente de Comunicación &amp;lt;br/&amp;gt;Docente de Matemática &amp;lt;br/&amp;gt;Padres de familia' data-id='4.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e16' cx='703.92' cy='117.66' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente de Comunicación &amp;lt;br/&amp;gt;Docente de Matemática &amp;lt;br/&amp;gt;Padres de familia' data-id='4.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e17' cx='742.57' cy='117.66' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;4.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director rural &amp;lt;br/&amp;gt;Director urbano &amp;lt;br/&amp;gt;Docente de Comunicación &amp;lt;br/&amp;gt;Docente de Matemática &amp;lt;br/&amp;gt;Estudiante &amp;lt;br/&amp;gt;Estudiante con discapacidad' data-id='4.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e18' cx='317.42' cy='75.92' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;6.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente de Personal social &amp;lt;br/&amp;gt;Docente de Comunicación &amp;lt;br/&amp;gt;Docente de Matemática &amp;lt;br/&amp;gt;Estudiante &amp;lt;br/&amp;gt;Padres de familia' data-id='6.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e19' cx='742.57' cy='75.92' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;6.° grado de primaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Docente de Comunicación &amp;lt;br/&amp;gt;Docente de Matemática &amp;lt;br/&amp;gt;Estudiante &amp;lt;br/&amp;gt;Padres de familia &amp;lt;br/&amp;gt;Estudiante con discapacidad &amp;lt;br/&amp;gt;Padres de familia (discapacidad)' data-id='6.° grado de primaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e20' cx='394.72' cy='34.18' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Estudiante' data-id='2.° grado de secundaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e21' cx='433.37' cy='34.18' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente de Comunicación &amp;lt;br/&amp;gt;Docente de Matemática &amp;lt;br/&amp;gt;Docente de Ciencias sociales &amp;lt;br/&amp;gt;Estudiante' data-id='2.° grado de secundaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e22' cx='510.67' cy='34.18' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Estudiante &amp;lt;br/&amp;gt;Estudiante CTA y Comunicación (Muestral)' data-id='2.° grado de secundaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e23' cx='549.32' cy='34.18' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente de Comunicación &amp;lt;br/&amp;gt;Estudiante &amp;lt;br/&amp;gt;Estudiante con discapacidad &amp;lt;br/&amp;gt;Padres de familia (discapacidad)' data-id='2.° grado de secundaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e24' cx='665.27' cy='34.18' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente de Comunicación &amp;lt;br/&amp;gt;Docente de Matemática &amp;lt;br/&amp;gt;Estudiante' data-id='2.° grado de secundaria'/>\n   <circle id='svg_8505e407_9513_4b83_acf9_44104d532c3a_e25' cx='703.92' cy='34.18' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round' title='&amp;lt;b&amp;gt;2.° grado de secundaria&amp;lt;/b&amp;gt; &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Actor considerado:&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;Director &amp;lt;br/&amp;gt;Docente de Comunicación &amp;lt;br/&amp;gt;Docente de Matemática &amp;lt;br/&amp;gt;Docente de Ciencias sociales &amp;lt;br/&amp;gt;Docente tutor &amp;lt;br/&amp;gt;Estudiante' data-id='2.° grado de secundaria'/>\n   <rect x='568.65' y='27.92' width='77.3' height='139.84' fill='#787878' fill-opacity='0.2' stroke='#525252' stroke-opacity='1' stroke-width='0.21' stroke-dasharray='4,4' stroke-linejoin='miter' stroke-linecap='butt'/>\n   <text x='588.81' y='17.51' font-size='4.27pt' font-family='Arial' fill='#626262' fill-opacity='1'>Pandemia por <\/text>\n   <text x='594.18' y='25.7' font-size='4.27pt' font-family='Arial' fill='#626262' fill-opacity='1'>COVID-19<\/text>\n  <\/g>\n  <g clip-path='url(#svg_8505e407_9513_4b83_acf9_44104d532c3a_c1)'>\n   <text x='76.62' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2007<\/text>\n   <text x='115.27' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2008<\/text>\n   <text x='153.92' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2009<\/text>\n   <text x='192.57' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2010<\/text>\n   <text x='231.44' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2011<\/text>\n   <text x='269.87' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2012<\/text>\n   <text x='308.52' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2013<\/text>\n   <text x='347.17' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2014<\/text>\n   <text x='385.82' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2015<\/text>\n   <text x='424.47' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2016<\/text>\n   <text x='463.12' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2017<\/text>\n   <text x='501.77' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2018<\/text>\n   <text x='540.42' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2019<\/text>\n   <text x='579.07' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2020<\/text>\n   <text x='617.72' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2021<\/text>\n   <text x='656.37' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2022<\/text>\n   <text x='695.02' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2023<\/text>\n   <text x='733.67' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2024<\/text>\n   <text x='772.32' y='188.33' font-size='6pt' font-weight='bold' font-family='Arial' fill='#626262' fill-opacity='1'>2025<\/text>\n   <rect x='313.78' y='200.97' width='239.19' height='28.24' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <rect x='319.26' y='206.45' width='17.28' height='17.28' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <circle cx='327.9' cy='215.09' r='3.07pt' fill='#FFAB00' fill-opacity='1' stroke='#FFAB00' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round'/>\n   <rect x='372.4' y='206.45' width='17.28' height='17.28' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <circle cx='381.04' cy='215.09' r='3.07pt' fill='#008AA1' fill-opacity='1' stroke='#008AA1' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round'/>\n   <rect x='463.35' y='206.45' width='17.28' height='17.28' fill='#FFFFFF' fill-opacity='1' stroke='none'/>\n   <circle cx='471.99' cy='215.09' r='3.07pt' fill='#29BDAD' fill-opacity='1' stroke='#29BDAD' stroke-opacity='1' stroke-width='0.71' stroke-linejoin='round' stroke-linecap='round'/>\n   <text x='342.02' y='217.96' font-size='6pt' font-family='Arial' fill='#626262' fill-opacity='1'>Censal<\/text>\n   <text x='395.16' y='217.96' font-size='6pt' font-family='Arial' fill='#626262' fill-opacity='1'>Muestral nacional<\/text>\n   <text x='486.11' y='217.96' font-size='6pt' font-family='Arial' fill='#626262' fill-opacity='1'>Muestral regional<\/text>\n   <text x='8.22' y='238.27' font-size='3.75pt' font-family='Arial' fill='#626262' fill-opacity='1'>Nota 1. En el año 2017 no se aplicaron evaluaciones de logros de aprendizaje debido a la pérdida de días de clase que tuvieron los y las estudiantes a causa de una prolongada huelga docente y los estragos del Fenónmeno del Niño.<\/text>\n   <text x='8.22' y='241.87' font-size='3.75pt' font-family='Arial' fill='#626262' fill-opacity='1'>  <\/text>\n   <text x='8.22' y='245.47' font-size='3.75pt' font-family='Arial' fill='#626262' fill-opacity='1'>Nota 2. Los resultados de aprendizaje de 6.º grado de 2013 no son comparables con los de años siguientes porque las pruebas aplicaron distintos conjuntos de preguntas y los puntajes se encuentran en diferentes escalas.<\/text>\n  <\/g>\n <\/g>\n<\/svg>","js":null,"uid":"svg_8505e407_9513_4b83_acf9_44104d532c3a","ratio":3.428571428571428,"settings":{"tooltip":{"css":".tooltip_SVGID_ { background:white;border:1px solid grey;;border-radius:6px;padding:6px;font-weight:400;font-size:12pt; ; position:absolute;pointer-events:none;z-index:999;}","placement":"doc","opacity":0.9,"offx":10,"offy":0,"use_cursor_pos":true,"use_fill":false,"use_stroke":false,"delay_over":200,"delay_out":500},"hover":{"css":"","reactive":false,"nearest_distance":null},"hover_inv":{"css":".hover_inv_SVGID_ { opacity:0.1; }\nline.hover_inv_SVGID_, polyline.hover_inv_SVGID_ { opacity: 0.005; }"},"hover_key":{"css":".hover_key_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_key_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_key_SVGID_ { fill:orange;stroke:black; }\nline.hover_key_SVGID_, polyline.hover_key_SVGID_ { fill:none;stroke:orange; }\nrect.hover_key_SVGID_, polygon.hover_key_SVGID_, path.hover_key_SVGID_ { fill:orange;stroke:none; }\nimage.hover_key_SVGID_ { stroke:orange; }","reactive":true},"hover_theme":{"css":".hover_theme_SVGID_ { fill:orange;stroke:black;cursor:pointer; }\ntext.hover_theme_SVGID_ { stroke:none;fill:orange; }\ncircle.hover_theme_SVGID_ { fill:orange;stroke:black; }\nline.hover_theme_SVGID_, polyline.hover_theme_SVGID_ { fill:none;stroke:orange; }\nrect.hover_theme_SVGID_, polygon.hover_theme_SVGID_, path.hover_theme_SVGID_ { fill:orange;stroke:none; }\nimage.hover_theme_SVGID_ { stroke:orange; }","reactive":true},"select":{"css":".select_data_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_data_SVGID_ { stroke:none;fill:red; }\ncircle.select_data_SVGID_ { fill:red;stroke:black; }\nline.select_data_SVGID_, polyline.select_data_SVGID_ { fill:none;stroke:red; }\nrect.select_data_SVGID_, polygon.select_data_SVGID_, path.select_data_SVGID_ { fill:red;stroke:none; }\nimage.select_data_SVGID_ { stroke:red; }","type":"multiple","only_shiny":true,"selected":[]},"select_inv":{"css":""},"select_key":{"css":".select_key_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_key_SVGID_ { stroke:none;fill:red; }\ncircle.select_key_SVGID_ { fill:red;stroke:black; }\nline.select_key_SVGID_, polyline.select_key_SVGID_ { fill:none;stroke:red; }\nrect.select_key_SVGID_, polygon.select_key_SVGID_, path.select_key_SVGID_ { fill:red;stroke:none; }\nimage.select_key_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"select_theme":{"css":".select_theme_SVGID_ { fill:red;stroke:black;cursor:pointer; }\ntext.select_theme_SVGID_ { stroke:none;fill:red; }\ncircle.select_theme_SVGID_ { fill:red;stroke:black; }\nline.select_theme_SVGID_, polyline.select_theme_SVGID_ { fill:none;stroke:red; }\nrect.select_theme_SVGID_, polygon.select_theme_SVGID_, path.select_theme_SVGID_ { fill:red;stroke:none; }\nimage.select_theme_SVGID_ { stroke:red; }","type":"single","only_shiny":true,"selected":[]},"zoom":{"min":1,"max":1,"duration":300},"toolbar":{"position":"topright","pngname":"diagram","tooltips":null,"fixed":false,"hidden":[],"delay_over":200,"delay_out":500},"sizing":{"rescale":true,"width":1}}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
