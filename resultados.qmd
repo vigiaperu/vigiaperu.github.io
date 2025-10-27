@@ -55,6 +55,10 @@ theme_set(
       panel.border = element_rect(color = "#626262",
                                   size = 0.2),
       panel.grid = element_blank(),
+      legend.position = "bottom",
+      legend.title = element_blank(),
+      legend.text = element_text(size = 8,
+                                 color = "#626262"),
       axis.title = element_blank(),
       axis.ticks = element_blank(),
       axis.text.x = element_text(size = 6,
@@ -64,10 +68,10 @@ theme_set(
                                  hjust = 0),
       plot.title.position = "plot",
       plot.caption.position = "plot",
-      plot.title = element_text(size = 8,
+      plot.title = element_text(size = 10,
                                 color = "#626262",
                                 face = "bold"),
-      plot.subtitle = element_text(size = 10,
+      plot.subtitle = element_text(size = 8,
                                    color = "#626262"),
       plot.caption = element_text(hjust = 0,
                                   size = 6.0,
@@ -86,11 +90,7 @@ theme_set(
 #| warning: false
 #| echo: false
 
-bd_satis <- read.csv("01 Bases/satisf_int.csv") %>%
-  mutate(
-    sat_etiq = puntocoma2(ptot,1),
-    tooltip_etiq = glue::glue('<b>Satisfactorio: {sat_etiq}</b>')
-  )
+bd_satis <- read.csv("01 Bases/satisf_int.csv")
 
 ```
 
@@ -100,9 +100,9 @@ bd_satis <- read.csv("01 Bases/satisf_int.csv") %>%
 
 ## 2.° grado de primaria
 
-Aquí se observan las tendencias históricas del **porcentaje de estudiantes que alcanzan el nivel Satisfactorio** en Lectura y Matemática para 2.° grado de primaria. 
+Estos resultados muestran cómo han evolucionado los niveles de logro de los estudiantes de 2.° grado de primaria a lo largo del tiempo. Permiten observar las tendencias generales del aprendizaje en el país y reconocer los avances y desafíos que persisten en el desarrollo de las competencias evaluadas.
 
-```{r Gráfico Satisfactorio 2p estático}
+```{r Gráfico Satisfactorio 2p - Nacional estático}
 #| message: false
 #| warning: false
 #| echo: false
@@ -111,7 +111,12 @@ Aquí se observan las tendencias históricas del **porcentaje de estudiantes que
 #---------------#
 
 satisf_2p <- bd_satis %>%
-  filter(grado %in% "2.° grado de primaria")
+  filter(grado %in% "2.° grado de primaria") %>% 
+  filter(estrato1 %in% "Nacional") %>% 
+  mutate(
+    sat_etiq = puntocoma2(ptot,1),
+    tooltip_etiq = glue::glue('<b>Año {Año}</b> <br>Satisfactorio: {sat_etiq}</b>')
+  )
 
 # Gráfico # 
 #---------#
@@ -171,7 +176,7 @@ gsat_2p <- ggplot(satisf_2p, aes(x = Año, y = ptot)) +
 
 ```
 
-```{r Gráfico Satisfactorio 2p interactivo}
+```{r Gráfico Satisfactorio 2p - Nacional interactivo}
 #| message: false
 #| warning: false
 #| echo: false
@@ -210,11 +215,247 @@ options = list(
 
 ### Tendencias por gestión de la escuela
 
+Las diferencias en los resultados según el tipo de gestión —pública o privada— ofrecen una mirada complementaria sobre la equidad y la eficacia del sistema educativo. Analizar estas brechas en el tiempo ayuda a comprender cómo las condiciones institucionales y de gestión influyen en las oportunidades de aprendizaje de los estudiantes.
+
+```{r Gráfico Satisfactorio 2p - gestión estático}
+#| message: false
+#| warning: false
+#| echo: false
+
+# Base de datos #
+#---------------#
+
+satisf_2p_gest <- bd_satis %>%
+  filter(grado %in% "2.° grado de primaria") %>% 
+  filter(estrato1 %in% "Gestión") %>% 
+  mutate(
+    sat_etiq = puntocoma2(ptot,1),
+    tooltip_etiq = glue::glue('<b>{estrato2} {Año}</b> <br>Satisfactorio: {sat_etiq}</b>')
+  )
+
+# Gráfico # 
+#---------#
+
+gsat_2p_gest <- ggplot(satisf_2p_gest, aes(x = Año, y = ptot, color = estrato2, group = estrato2)) +
+  facet_wrap(~areaeval) +
+  geom_hline(
+    yintercept = c(25,50,75),
+    linetype = "dashed",
+    lwd = 0.2,
+    alpha = 0.2,
+    color = "#525252"
+  ) +
+  geom_line_interactive(
+    lwd = 0.2,
+    alpha = 0.4,
+    color = "#626262",
+    aes(
+      data_id = estrato2
+    )
+  ) +
+  geom_point_interactive(
+    size = 3.0,
+    aes(#Define lo que va a ir en el cuadro de texto
+      tooltip = tooltip_etiq,
+      data_id = estrato2
+      )
+  ) +
+  scale_x_continuous(
+    limits = c(2007,2025),
+    breaks = seq(2007,2025, by = 1)
+  ) +
+  scale_y_continuous(
+    limits = c(0,100),
+    breaks = c(25,50,75),
+    labels = function(x) format(x, nsmall = 1, decimal.mark = ",")
+  ) +
+  scale_color_manual(
+    values = c(sanzo.duo("c114"))
+  ) + 
+  annotate(#Define el bloque gris de pandemia
+    geom = "rect", 
+    xmin = 2019.5, 
+    xmax = 2021.5, 
+    ymin = 3.0, 
+    ymax = 75.0,
+    alpha = .2,
+    fill = "#787878",
+    colour = "#525252",
+    linetype = "dashed",
+    lwd = 0.1
+  ) +
+  annotate(
+    geom = "text",
+    x = 2020.5,
+    y = 81.0,
+    label = "Pandemia por \nCOVID-19",
+    size = 2.0,
+    color = "#626262",
+    alpha = 0.5
+  ) 
+
+```
+
+```{r Gráfico Satisfactorio 2p - gestión interactivo}
+#| message: false
+#| warning: false
+#| echo: false
+#| column: screen
+#| out-width: "100%"
+#| out-height: "100%"
+#| fig.width: 5.3
+#| fig.height: 3.5
+#| fig-format: svg
+
+girafe(
+ggobj = gsat_2p_gest,
+width_svg = 12,
+options = list(
+  opts_hover(css = ''),
+  opts_hover_inv(
+    css = girafe_css(
+      css = 'opacity:0.1;',
+      line = 'opacity: 0.005;'
+  )
+),
+  opts_tooltip(
+    css = htmltools::css(
+      background = "white",
+      border = '1px solid grey;',
+      border_radius = '6px',   # opcional: bordes redondeados
+      padding = '6px',
+      font_weight = 400,
+      font_size = '12pt'
+      )
+    )
+  )
+)
+
+```
+
 ### Tendencias por área geográfica
+
+Los resultados desagregados por área geográfica permiten identificar patrones vinculados al territorio y al contexto donde aprenden los estudiantes. Esta perspectiva muestra cómo factores asociados a la ruralidad o la urbanización pueden incidir en los logros de aprendizaje y orienta la formulación de políticas más contextualizadas.
+
+```{r Gráfico Satisfactorio 2p - área estático}
+#| message: false
+#| warning: false
+#| echo: false
+
+# Base de datos #
+#---------------#
+
+satisf_2p_area <- bd_satis %>%
+  filter(grado %in% "2.° grado de primaria") %>% 
+  filter(estrato1 %in% "Área") %>% 
+  mutate(
+    grupos_comp = case_when(
+      Año %in% c(2007:2019) ~ "Primera definición de ruralidad",
+      TRUE ~ "Segunda definición de ruralidad"
+    )
+  ) %>% 
+  mutate(
+    sat_etiq = puntocoma2(ptot,1),
+    tooltip_etiq = glue::glue('<b>{estrato2} {Año}</b> <br>Satisfactorio: {sat_etiq}</b>')
+  ) %>% 
+  mutate(
+    Año = as.character(Año)
+  )
+
+# Gráfico # 
+#---------#
+
+gsat_2p_area<- ggplot(satisf_2p_area, aes(x = Año, y = ptot, color = estrato2, group = estrato2)) +
+  facet_nested(
+    ~ areaeval + grupos_comp,   # Jerarquía de facets
+    scales = "free_x",
+    # nest_line = TRUE,                                  # agrega una línea de jerarquía entre niveles
+    labeller = labeller(
+      areaeval = label_value,
+      grupos_comp = function(x) sprintf("<span style='font-size:8pt;'>%s</span>", x)
+    )
+  )  +
+  geom_hline(
+    yintercept = c(25,50,75),
+    linetype = "dashed",
+    lwd = 0.2,
+    alpha = 0.2,
+    color = "#525252"
+  ) +
+  geom_line_interactive(
+    lwd = 0.2,
+    alpha = 0.4,
+    color = "#626262",
+    aes(
+      data_id = estrato2
+    )
+  ) +
+  geom_point_interactive(
+    size = 2.0,
+    aes(#Define lo que va a ir en el cuadro de texto
+      tooltip = tooltip_etiq,
+      data_id = estrato2
+      )
+  ) +
+  scale_y_continuous(
+    limits = c(0,100),
+    breaks = c(25,50,75),
+    labels = function(x) format(x, nsmall = 1, decimal.mark = ",")
+  ) +
+  scale_color_manual(
+    values = c(sanzo.duo("c114"))
+  ) +
+  theme(
+    ggh4x.facet.nestline = element_line(
+      linewidth = 0.1,   # grosor más delgado (default ≈ 0.5)
+      colour = "#626262", # color de la línea
+      linetype = "solid" # puede ser "dashed", "dotted", etc.
+    ),
+    strip.text.x = element_markdown(size = 10) 
+  )
+
+```
+
+```{r Gráfico Satisfactorio 2p - área interactivo}
+#| message: false
+#| warning: false
+#| echo: false
+#| column: screen
+#| out-width: "100%"
+#| out-height: "100%"
+#| fig.width: 5.0
+#| fig.height: 3.5
+#| fig-format: svg
+
+girafe(
+ggobj = gsat_2p_area,
+width_svg = 12,
+options = list(
+  opts_hover(css = ''),
+  opts_hover_inv(
+    css = girafe_css(
+      css = 'opacity:0.1;',
+      line = 'opacity: 0.005;'
+  )
+),
+  opts_tooltip(
+    css = htmltools::css(
+      background = "white",
+      border = '1px solid grey;',
+      border_radius = '6px',   # opcional: bordes redondeados
+      padding = '6px',
+      font_weight = 400,
+      font_size = '12pt'
+      )
+    )
+  )
+)
+
+```
 
 ## 4.° grado de primaria
 
-```{r Gráfico Satisfactorio 4p estático}
+```{r Gráfico Satisfactorio 4p - Nacional estático}
 #| message: false
 #| warning: false
 #| echo: false
@@ -223,7 +464,12 @@ options = list(
 #---------------#
 
 satisf_4p <- bd_satis %>%
-  filter(grado %in% "4.° grado de primaria")
+  filter(grado %in% "4.° grado de primaria") %>% 
+  filter(estrato1 %in% "Nacional") %>% 
+  mutate(
+    sat_etiq = puntocoma2(ptot,1),
+    tooltip_etiq = glue::glue('<b>Año {Año}</b> <br>Satisfactorio: {sat_etiq}</b>')
+  )
 
 # Gráfico # 
 #---------#
@@ -283,7 +529,7 @@ gsat_4p <- ggplot(satisf_4p, aes(x = Año, y = ptot)) +
 
 ```
 
-```{r Gráfico Satisfactorio 4p interactivo}
+```{r Gráfico Satisfactorio 4p - Nacional interactivo}
 #| message: false
 #| warning: false
 #| echo: false
@@ -296,6 +542,242 @@ gsat_4p <- ggplot(satisf_4p, aes(x = Año, y = ptot)) +
 
 girafe(
 ggobj = gsat_4p,
+width_svg = 12,
+options = list(
+  opts_hover(css = ''),
+  opts_hover_inv(
+    css = girafe_css(
+      css = 'opacity:0.1;',
+      line = 'opacity: 0.005;'
+  )
+),
+  opts_tooltip(
+    css = htmltools::css(
+      background = "white",
+      border = '1px solid grey;',
+      border_radius = '6px',   # opcional: bordes redondeados
+      padding = '6px',
+      font_weight = 400,
+      font_size = '12pt'
+      )
+    )
+  )
+)
+
+```
+
+### Tendencias por gestión de la escuela
+
+```{r Gráfico Satisfactorio 4p - gestión estático}
+#| message: false
+#| warning: false
+#| echo: false
+
+# Base de datos #
+#---------------#
+
+satisf_4p_gest <- bd_satis %>%
+  filter(grado %in% "4.° grado de primaria") %>% 
+  filter(estrato1 %in% "Gestión") %>% 
+  mutate(
+    sat_etiq = puntocoma2(ptot,1),
+    tooltip_etiq = glue::glue('<b>{estrato2} {Año}</b> <br>Satisfactorio: {sat_etiq}</b>')
+  )
+
+# Gráfico # 
+#---------#
+
+gsat_4p_gest <- ggplot(satisf_4p_gest, aes(x = Año, y = ptot, color = estrato2, group = estrato2)) +
+  facet_wrap(~areaeval) +
+  geom_hline(
+    yintercept = c(25,50,75),
+    linetype = "dashed",
+    lwd = 0.2,
+    alpha = 0.2,
+    color = "#525252"
+  ) +
+  geom_line_interactive(
+    lwd = 0.2,
+    alpha = 0.4,
+    color = "#626262",
+    aes(
+      data_id = estrato2
+    )
+  ) +
+  geom_point_interactive(
+    size = 3.0,
+    aes(#Define lo que va a ir en el cuadro de texto
+      tooltip = tooltip_etiq,
+      data_id = estrato2
+      )
+  ) +
+  scale_x_continuous(
+    limits = c(2016,2025),
+    breaks = seq(2016,2025, by = 1)
+  ) +
+  scale_y_continuous(
+    limits = c(0,100),
+    breaks = c(25,50,75),
+    labels = function(x) format(x, nsmall = 1, decimal.mark = ",")
+  ) +
+  scale_color_manual(
+    values = c(sanzo.duo("c114"))
+  ) + 
+  annotate(#Define el bloque gris de pandemia
+    geom = "rect", 
+    xmin = 2019.5, 
+    xmax = 2021.5, 
+    ymin = 3.0, 
+    ymax = 75.0,
+    alpha = .2,
+    fill = "#787878",
+    colour = "#525252",
+    linetype = "dashed",
+    lwd = 0.1
+  ) +
+  annotate(
+    geom = "text",
+    x = 2020.5,
+    y = 81.0,
+    label = "Pandemia por \nCOVID-19",
+    size = 2.0,
+    color = "#626262",
+    alpha = 0.5
+  ) 
+
+```
+
+```{r Gráfico Satisfactorio 4p - gestión interactivo}
+#| message: false
+#| warning: false
+#| echo: false
+#| column: screen
+#| out-width: "100%"
+#| out-height: "100%"
+#| fig.width: 5.3
+#| fig.height: 3.5
+#| fig-format: svg
+
+girafe(
+ggobj = gsat_4p_gest,
+width_svg = 12,
+options = list(
+  opts_hover(css = ''),
+  opts_hover_inv(
+    css = girafe_css(
+      css = 'opacity:0.1;',
+      line = 'opacity: 0.005;'
+  )
+),
+  opts_tooltip(
+    css = htmltools::css(
+      background = "white",
+      border = '1px solid grey;',
+      border_radius = '6px',   # opcional: bordes redondeados
+      padding = '6px',
+      font_weight = 400,
+      font_size = '12pt'
+      )
+    )
+  )
+)
+
+```
+
+### Tendencia por área geográfica
+
+```{r Gráfico Satisfactorio 4p - área estático}
+#| message: false
+#| warning: false
+#| echo: false
+
+# Base de datos #
+#---------------#
+
+satisf_4p_area <- bd_satis %>%
+  filter(grado %in% "4.° grado de primaria") %>% 
+  filter(estrato1 %in% "Área") %>% 
+  mutate(
+    grupos_comp = case_when(
+      Año %in% c(2007:2019) ~ "Primera definición de ruralidad",
+      TRUE ~ "Segunda definición de ruralidad"
+    )
+  ) %>% 
+  mutate(
+    sat_etiq = puntocoma2(ptot,1),
+    tooltip_etiq = glue::glue('<b>{estrato2} {Año}</b> <br>Satisfactorio: {sat_etiq}</b>')
+  ) %>% 
+  mutate(
+    Año = as.character(Año)
+  )
+
+# Gráfico # 
+#---------#
+
+gsat_4p_area<- ggplot(satisf_4p_area, aes(x = Año, y = ptot, color = estrato2, group = estrato2)) +
+  facet_nested(
+    ~ areaeval + grupos_comp,   # Jerarquía de facets
+    scales = "free_x",
+    # nest_line = TRUE,                                  # agrega una línea de jerarquía entre niveles
+    labeller = labeller(
+      areaeval = label_value,
+      grupos_comp = function(x) sprintf("<span style='font-size:8pt;'>%s</span>", x)
+    )
+  )  +
+  geom_hline(
+    yintercept = c(25,50,75),
+    linetype = "dashed",
+    lwd = 0.2,
+    alpha = 0.2,
+    color = "#525252"
+  ) +
+  geom_line_interactive(
+    lwd = 0.2,
+    alpha = 0.4,
+    color = "#626262",
+    aes(
+      data_id = estrato2
+    )
+  ) +
+  geom_point_interactive(
+    size = 2.0,
+    aes(#Define lo que va a ir en el cuadro de texto
+      tooltip = tooltip_etiq,
+      data_id = estrato2
+      )
+  ) +
+  scale_y_continuous(
+    limits = c(0,100),
+    breaks = c(25,50,75),
+    labels = function(x) format(x, nsmall = 1, decimal.mark = ",")
+  ) +
+  scale_color_manual(
+    values = c(sanzo.duo("c114"))
+  ) +
+  theme(
+    ggh4x.facet.nestline = element_line(
+      linewidth = 0.1,   # grosor más delgado (default ≈ 0.5)
+      colour = "#626262", # color de la línea
+      linetype = "solid" # puede ser "dashed", "dotted", etc.
+    ),
+    strip.text.x = element_markdown(size = 10) 
+  )
+
+```
+
+```{r Gráfico Satisfactorio 4p - área interactivo}
+#| message: false
+#| warning: false
+#| echo: false
+#| column: screen
+#| out-width: "100%"
+#| out-height: "100%"
+#| fig.width: 5.0
+#| fig.height: 3.5
+#| fig-format: svg
+
+girafe(
+ggobj = gsat_4p_area,
 width_svg = 12,
 options = list(
   opts_hover(css = ''),
