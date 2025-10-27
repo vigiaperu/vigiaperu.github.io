@@ -5,12 +5,13 @@ project:
 website:
   title: "Vigía: observatorio de aprendizajes"
   navbar:
-    left:
+    right:
       - href: evaluaciones.qmd
         text: Evaluaciones y cuestionarios
       - href: resultados.qmd
         text: Resultados nacionales
       - href: resultados_regionales.qmd
         text: Resultados regionales
+    search: false
       
       
